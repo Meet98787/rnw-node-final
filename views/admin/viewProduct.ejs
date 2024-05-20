@@ -1,0 +1,20 @@
+<!-- views/admin/viewProduct.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Product</title>
+</head>
+<body>
+    <%- include('../partials/header') %>
+    <h1>View Product</h1>
+    <p>Name: <%= product.name %></p>
+    <p>Price: <%= product.price %></p>
+    <p>Category: <%= product.category.name %></p>
+    <p>Subcategory: <%= product.subcategory.name %></p>
+    <p>Brand: <%= product.brand.name %></p>
+    <a href="/admin/products">Back to Products</a>
+    <%- include('../partials/footer') %>
+</body>
+</html>

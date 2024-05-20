@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Manage Subcategories</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <%- include('../partials/header') %>
+  <h1>Manage Subcategories</h1>
+  <form action="/admin/subcategories" method="POST">
+    <input type="text" name="name" placeholder="Subcategory Name" required>
+    <select name="category" required>
+      <% categories.forEach(category => { %>
+        <option value="<%= category._id %>"><%= category.name %></option>
+      <% }) %>
+    </select>
+    <button type="submit">Add Subcategory</button>
+  </form>
+  <ul>
+    <% subcategories.forEach(subcategory => { %>
+      <li><%= subcategory.name %> - <%= subcategory.category.name %></li>
+    <% }) %>
+  </ul>
+  <%- include('../partials/footer') %>
+</body>
+</html>

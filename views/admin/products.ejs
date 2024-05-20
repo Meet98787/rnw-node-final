@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Manage Products</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <%- include('../partials/header') %>
+  <h1>Manage Products</h1>
+  <form action="/admin/products" method="POST">
+    <input type="text" name="name" placeholder="Product Name" required>
+    <textarea name="description" placeholder="Product Description" required></textarea>
+    <input type="number" name="price" placeholder="Product Price" required>
+    <select name="category" required>
+      <% categories.forEach(category => { %>
+        <option value="<%= category._id %>"><%= category.name %></option>
+      <% }) %>
+    </select>
+    <select name="subcategory" required>
+      <% subcategories.forEach(subcategory => { %>
+        <option value="<%= subcategory._id %>"><%= subcategory.name %></option>
+      <% }) %>
+    </select>
+    <select name="brand" required>
+      <% brands.forEach(brand => { %>
+        <option value="<%= brand._id %>"><%= brand.name %></option>
+      <% }) %>
+    </select>
+    <button type="submit">Add Product</button>
+  </form>
+  <ul>
+    <% products.forEach(product => { %>
+        <li>
+            <%= product.name %> - <%= product.price %> - <%= product.category.name %> - <%= product.subcategory.name %> - <%= product.brand.name %>
+            <a href="/admin/products/view/<%= product._id %>">View</a>
+            <a href="/admin/products/edit/<%= product._id %>">Edit</a>
+            <form action="/admin/products/delete/<%= product._id %>" method="POST" style="display:inline;">
+                <button type="submit">Delete</button>
+            </form>
+        </li>
+    <% }) %>
+</ul>
+  <%- include('../partials/footer') %>
+</body>
+</html>
