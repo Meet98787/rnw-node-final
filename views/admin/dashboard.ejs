@@ -7,14 +7,16 @@
 </head>
 <body>
   <%- include('../partials/header') %>
+  <div class="col-4 m-auto">
   <h1>Admin Dashboard</h1>
-  <ul>
-    <li><a href="/admin/managers">Manage Managers</a></li>
-    <li><a href="/admin/categories">Manage Categories</a></li>
-    <li><a href="/admin/subcategories">Manage Subcategories</a></li>
-    <li><a href="/admin/brands">Manage Brands</a></li>
-    <li><a href="/admin/products">Manage Products</a></li>
+  <ul class="list-group">
+    <li class="list-group-item"><a href="/admin/managers" class="text-decoration-none text-reset">Manage Managers</a></li>
+    <li class="list-group-item"><a href="/admin/categories" class="text-decoration-none text-reset">Manage Categories</a></li>
+    <li class="list-group-item"><a href="/admin/subcategories" class="text-decoration-none text-reset">Manage Subcategories</a></li>
+    <li class="list-group-item"><a href="/admin/brands" class="text-decoration-none text-reset">Manage Brands</a></li>
+    <li class="list-group-item"><a href="/admin/products" class="text-decoration-none text-reset">Manage Products</a></li>
   </ul>
+</div>
   <%- include('../partials/footer') %>
 </body>
 </html>

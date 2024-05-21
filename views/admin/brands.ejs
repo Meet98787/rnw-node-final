@@ -7,16 +7,26 @@
 </head>
 <body>
   <%- include('../partials/header') %>
+  <div class="col-4 m-auto">
   <h1>Manage Brands</h1>
   <form action="/admin/brands" method="POST">
-    <input type="text" name="name" placeholder="Brand Name" required>
-    <button type="submit">Add Brand</button>
+    <div data-mdb-input-init class="form-outline mb-4">
+      <input type="text" id="form2Example1" name="name" class="form-control" required/>
+      <label class="form-label" for="form2Example1">Subcategory</label>
+    </div>
+    <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block mb-4">Add Brand</button>
   </form>
-  <ul>
+  <table class="table table-hover">
+    <tr>
+      <th>Brand Name</th>
+    </tr>
     <% brands.forEach(brand => { %>
-      <li><%= brand.name %></li>
+      <tr>
+        <td><%= brand.name %></td>
+      </tr>
     <% }) %>
-  </ul>
+  </table>
+</div>
   <%- include('../partials/footer') %>
 </body>
 </html>

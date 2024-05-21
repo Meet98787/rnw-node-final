@@ -69,8 +69,8 @@ exports.getProducts = async (req, res) => {
 };
 
 exports.createProduct = async (req, res) => {
-    const { name, description, price, category, subcategory, brand } = req.body;
-    let product = new Product({ name, description, price, category, subcategory, brand });
+    const { name, description, price, category,image, subcategory, brand } = req.body;
+    let product = new Product({ name, description, price,image, category, subcategory, brand });
     await product.save();
     res.redirect('/admin/products');
 };
@@ -90,8 +90,8 @@ exports.editProductPage = async (req, res) => {
 };
 
 exports.updateProduct = async (req, res) => {
-    const { name, price, category, subcategory, brand } = req.body;
-    await Product.findByIdAndUpdate(req.params.id, { name, price, category, subcategory, brand });
+    const { name, price,image, category, subcategory, brand } = req.body;
+    await Product.findByIdAndUpdate(req.params.id, { name, price,image, category, subcategory, brand });
     res.redirect('/admin/products');
 };
 
