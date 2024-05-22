@@ -16,7 +16,7 @@ exports.createCategory = async (req, res) => {
     const { name } = req.body;
     let category = new Category({ name });
     await category.save();
-    res.redirect('/manager/addCategory');
+    res.redirect('/manager/categories');
 };
 
 exports.getSubcategories = async (req, res) => {
@@ -29,7 +29,7 @@ exports.createSubcategory = async (req, res) => {
     const { name, category } = req.body;
     let subcategory = new Subcategory({ name, category });
     await subcategory.save();
-    res.redirect('/manager/addSubcategory');
+    res.redirect('/manager/subcategories');
 };
 
 exports.getBrands = async (req, res) => {
@@ -41,7 +41,7 @@ exports.createBrand = async (req, res) => {
     const { name } = req.body;
     let brand = new Brand({ name });
     await brand.save();
-    res.redirect('/manager/addBrand');
+    res.redirect('/manager/brands');
 };
 
 exports.getProducts = async (req, res) => {
@@ -53,8 +53,8 @@ exports.getProducts = async (req, res) => {
 };
 
 exports.createProduct = async (req, res) => {
-    const { name, description, price, category, subcategory, brand } = req.body;
-    let product = new Product({ name, description, price, category, subcategory, brand });
+    const { name, price,image, category, subcategory, brand } = req.body;
+    let product = new Product({ name, image, price, category, subcategory, brand });
     await product.save();
-    res.redirect('/manager/addProduct');
+    res.redirect('/manager/products');
 };

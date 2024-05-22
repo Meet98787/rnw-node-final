@@ -7,12 +7,26 @@
   <title>Add Category</title>
 </head>
 <body>
-  <h1>Add Category</h1>
-  <form action="/manager/add-category" method="POST">
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" required>
-    <br>
-    <button type="submit">Add</button>
-  </form>
+  <%- include('../partials/header') %>
+  <div class="col-4 m-auto">
+    <h1>Manage Categories</h1>
+    <form action="/manager/categories" method="POST">
+      <div data-mdb-input-init class="form-outline mb-4">
+        <label class="form-label" for="form2Example1">Category Name</label>
+        <input type="text" id="form2Example1" name="name" class="form-control" required/>
+      </div>
+      <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block mb-4">Add Category</button>
+    </form>
+    <table class="table table-hover">
+      <tr>
+        <th>Categories Name</th>
+      </tr>
+      <% categories.forEach(category => { %>
+        <tr>
+          <td><%= category.name %></td>
+        </tr>
+      <% }) %>
+    </table>
+  </div>
 </body>
 </html>
